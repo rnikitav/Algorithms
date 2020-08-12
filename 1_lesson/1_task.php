@@ -47,7 +47,7 @@ function resFindBrackets(SplDoublyLinkedList $stack, $dictionary, $closeBrackets
                     $quotationMarks->push($stack->current());
                     continue;
                 }
-                if ($stack->current() == '"'){
+                else {
                     break;
                 }
             }
