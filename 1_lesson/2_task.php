@@ -3,7 +3,8 @@
 function getPrimeDivisor($num)
 {
     $res = new SplStack();
-    $maxRange = ceil($num / 2);
+//    $maxRange = ceil($num / 2);
+    $maxRange = ceil(sqrt($num));
     $n = 2;
     if ($num == 1)
     {
@@ -17,16 +18,23 @@ function getPrimeDivisor($num)
             ++$n;
         }
     }
-    $res->push($n);
+    if ($num > 1) {
+        $res->push($num);
+    }
+    else{
+        $res->push($n);
+    }
+
     return $res;
 }
 $start = microtime(true);
 $before = memory_get_usage();
 
 
-//$res = getPrimeDivisor(13195);
-$res = getPrimeDivisor(600851475143);
-//$res = getPrimeDivisor(515);
+$res = getPrimeDivisor(13195);
+//$res = getPrimeDivisor(600851475143);
+//$res = getPrimeDivisor(514);
+//$res = getPrimeDivisor(11);
 if ($res->count() > 0){
     echo '<p>' .$res->top() . '</p>';
 }
